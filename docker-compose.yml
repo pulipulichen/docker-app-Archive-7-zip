@@ -7,4 +7,4 @@ services:
     volumes: 
       - ./app:/app/
       - ./cache:/cache/
-      - /home/pudding/Documents/ramdisk/20230521-2155/:/input/
+      - /home/pudding/Documents/ramdisk/:/input/
