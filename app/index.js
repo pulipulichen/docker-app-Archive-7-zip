@@ -18,6 +18,7 @@ let main = async function () {
     
     let filename = path.basename(file)
     let dirname = path.dirname(file)
+    dirname = '/output/'
     
     let isCompress = true
     let filenameNoExt

@@ -14,10 +14,10 @@ function GetFiles() {
     let stats = fs.statSync(dockerAPPDirectoryPath)
       
     if (stats.isDirectory()) {
-      console.log(`${directoryPath} is a directory.`);
+      console.log(`${dockerAPPDirectoryPath} is a directory.`);
       files = getFilesInInput()
     } else {
-      console.log(`${directoryPath} is not a directory.`);
+      console.log(`${dockerAPPDirectoryPath} is not a directory.`);
     }
   }
 
