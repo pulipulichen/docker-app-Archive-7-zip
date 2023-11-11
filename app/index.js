@@ -71,8 +71,8 @@ let main = async function () {
         }
         if (ext === 'zip') {
           cmd = `zipu "${file}" -x`
-          // await ShellExec(cmd)
-          // cmd = `mv "${filenameNoExt}" `
+          await ShellExec(cmd)
+          cmd = `mv "${filenameNoExt}" /output/`
         }
         else {
           cmd = `7z x "${file}" -o"${path.resolve(dirname, filenameNoExt2)}"`
