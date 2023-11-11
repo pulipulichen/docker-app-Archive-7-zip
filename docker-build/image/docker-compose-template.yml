@@ -1,0 +1,10 @@
+version: "3"
+services:
+  app:
+    image: pudding/docker-app:docker-app-archive-7-zip_app-20231111-1040-0
+    tty: true
+    command: node /app/archive-tool-7z.js "/input/[INPUT]"
+    volumes: 
+      - ./app:/app/
+      - ./cache:/cache/
+      - [SOURCE]:/input/
