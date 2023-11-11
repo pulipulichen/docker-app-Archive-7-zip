@@ -106,6 +106,7 @@ let main = async function () {
               await ShellExec(`cd "${folderPath}"; mv * ../; cd ../; rm -rf "${list[0]}"`)
             }
             else {
+              print('only 1 file')
               await ShellExec(`cd "${targetFolder}"; cp -f * ../; cd ../; rm -rf "${path.basename(targetFolder)}"`)
             }
           }
