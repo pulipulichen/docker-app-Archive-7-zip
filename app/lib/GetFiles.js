@@ -6,7 +6,7 @@ const path = require('path');
 
 function GetFiles() {
   let files = GetExistedArgv()
-
+  
   if (files.length === 0) {
     // 可能是colab模式
     const dockerAPPDirectoryPath = '/input/.docker-app';
