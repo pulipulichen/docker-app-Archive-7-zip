@@ -347,7 +347,7 @@ If $INPUT_FILE = 1 Then
 		Next
 	Else
 		For $i = 1 To $sFiles[0]
-			MsgBox($MB_SYSTEMMODAL, $sPROJECT_NAME, $sFiles[$i])
+			;MsgBox($MB_SYSTEMMODAL, $sPROJECT_NAME, $sFiles[$i])
 			If FileExists($sFiles[$i]) Then
 				FileChangeDir($sProjectFolder)
 				; ShellExecuteWait("node", $sProjectFolder & "\index.js" & ' "' & $sFiles[$i] & '"')
