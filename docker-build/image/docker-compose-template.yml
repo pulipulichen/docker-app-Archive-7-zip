@@ -1,7 +1,7 @@
 version: "3"
 services:
   app:
-    image: pudding/docker-app:docker-app-archive-7-zip_app-20231111.152832
+    image: pudding/docker-app:docker-app-archive-7-zip_app-20231111.155102
     tty: true
     command: node /app/index.js "/input/__INPUT__"
     environment:
