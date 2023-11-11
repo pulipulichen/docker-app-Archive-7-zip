@@ -3,9 +3,10 @@ services:
   app:
     image: pudding/docker-app:docker-app-archive-7-zip_app-20231111.152832
     tty: true
-    command: node /app/archive-tool-7z.js "/input/__INPUT__"
+    command: node /app/index.js "/input/__INPUT__"
     environment:
       - CONTAINER_NAME=docker-app-archive-7-zip_app
+      - LOCAL_VOLUMN_PATH=/input/
     volumes: 
       - ./app:/app/
       - ./cache:/cache/
