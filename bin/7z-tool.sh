@@ -342,7 +342,6 @@ if [ "$INPUT_FILE" != "false" ]; then
     fi
   fi
 else
-  echo "background mode"
   cd "/tmp/${PROJECT_NAME}"
 
   # echo "PWD: ${SCRIPT_PATH}"
