@@ -12,9 +12,7 @@ let main = async function () {
   // await ShellSpawn(`locale`)
   // process.exit(0);
   let files = GetFiles()
-  console.log(files)
-  return false
-
+  
   for (let i = 0; i < files.length; i++) {
     let file = files[i]
     
