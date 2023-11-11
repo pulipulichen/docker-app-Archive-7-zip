@@ -8,7 +8,8 @@ const fs = require('fs')
 // convert a.tif -thumbnail 64x64^ -gravity center -extent 64x64 b.ico
 
 let main = async function () {
-  await ShellSpawn(`locale`)
+  // await ShellSpawn(`locale`)
+  process.exit(0);
   let files = GetExistedArgv()
   for (let i = 0; i < files.length; i++) {
     let file = files[i]
@@ -106,7 +107,7 @@ let main = async function () {
       } 
     }
   }
-
+  console.log('finished')
   process.exit(0);
 } // let main = async function () {
 
