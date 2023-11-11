@@ -1,6 +1,10 @@
 #!/bin/bash
 
-IMAGE_NAME=pudding/docker-app:docker-app-archive-7-zip_app-20231111-1040-0
+script_dir=$(dirname "$0")
+yaml_file="$script_dir/docker-compose-template.yml"
+IMAGE_NAME=$(awk '/^ *image:/ {sub(/^ *image: */, ""); sub(/ *$/, ""); print $0}' "$yaml_file")
 
-docker tag docker-app-archive-7-zip_app ${IMAGE_NAME}
+CONTAINER_NAME=$(awk -F= '/^ *- CONTAINER_NAME=/ {gsub(/ /,"",$2); print $2}' "$yaml_file")
+
+docker tag ${CONTAINER_NAME} ${IMAGE_NAME}
 docker push "${IMAGE_NAME}"
