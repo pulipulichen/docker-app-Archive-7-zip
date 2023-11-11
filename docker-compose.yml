@@ -5,6 +5,6 @@ services:
     tty: true
     command: node /app/split-zip-image-to-half.js "/input/資組.zip"
     volumes: 
-      - ./app:/app/
+      # - ./app:/app/
       - ./cache:/cache/
       - /home/pudding/Documents/ramdisk/:/input/
