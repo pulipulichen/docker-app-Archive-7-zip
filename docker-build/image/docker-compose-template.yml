@@ -7,6 +7,7 @@ services:
     environment:
       - CONTAINER_NAME=docker-app-archive-7-zip_app
       - LOCAL_VOLUMN_PATH=/input/
+      - RUN_COMMAND=node /app/index.js
     volumes: 
       - ./app:/app/
       - ./cache:/cache/
