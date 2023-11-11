@@ -4,10 +4,11 @@
   "description": "Resize and convert image to ICO format.",
   "main": "index.js",
   "scripts": {
+    "start": "docker-compose up --build",
     "d0.build": "docker-compose build",
     "d1.bash": "docker-compose run app bash",
-    "start": "docker-compose up",
-    "update": "node update.js"
+    "update": "node update.js",
+    "commit-docker-image": "docker-compose build; bash ./docker-build/image/commit-docker-image.sh"
   },
   "repository": {
     "type": "git",
