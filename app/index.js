@@ -88,7 +88,7 @@ let main = async function () {
     await ShellExec(cmd)
     
     if (isCompress === false) {
-      let targetFolder = path.resolve("/input/", filenameNoExt)
+      let targetFolder = path.resolve(dirname, filenameNoExt)
       while (true) {
         console.log(targetFolder, fs.existsSync(targetFolder))
         if (targetFolder && fs.existsSync(targetFolder) && fs.lstatSync(targetFolder).isDirectory()) {
