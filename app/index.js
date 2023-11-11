@@ -85,7 +85,13 @@ let main = async function () {
       }
     }
 
-    await ShellExec(cmd)
+    try {
+      await ShellExec(cmd)
+    }
+    catch (e) {
+      console.error(e)
+    }
+      
     
     if (isCompress === false) {
       let targetFolder = path.resolve(dirname, filenameNoExt)
