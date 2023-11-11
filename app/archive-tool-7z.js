@@ -106,6 +106,8 @@ let main = async function () {
       } 
     }
   }
-}
+
+  process.exit(0);
+} // let main = async function () {
 
 main()
