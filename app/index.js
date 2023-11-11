@@ -91,12 +91,11 @@ let main = async function () {
     catch (e) {
       console.error(e)
     }
-      
     
     if (isCompress === false) {
       let targetFolder = path.resolve(dirname, filenameNoExt)
       while (true) {
-        console.log(targetFolder, fs.existsSync(targetFolder))
+        // console.log(targetFolder, fs.existsSync(targetFolder))
         if (targetFolder && fs.existsSync(targetFolder) && fs.lstatSync(targetFolder).isDirectory()) {
           let list = fs.readdirSync(targetFolder)
           if (list.length > 1) {
@@ -113,7 +112,7 @@ let main = async function () {
               await ShellExec(`cd "${folderPath}"; mv * ../; cd ../; rm -rf "${list[0]}"`)
             }
             else {
-              console.log('only 1 file ' + list[0])
+              // console.log('only 1 file ' + list[0])
               await ShellExec(`cd "${targetFolder}"; cp -f * ../; cd ../; rm -rf "${path.basename(targetFolder)}"`)
             }
           }
