@@ -23,3 +23,7 @@ RUN mkdir -p /app/
 CMD ["node", "/app/index.js"]
 
 ENTRYPOINT [ ]
+
+RUN apt-get update
+RUN apt-get install -y python3 python3-pip
+RUN pip install ZipUnicode

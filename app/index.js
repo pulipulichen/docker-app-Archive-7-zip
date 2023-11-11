@@ -69,7 +69,15 @@ let main = async function () {
         if (filenameNoExt.length < 6 || dotPos > filenameNoExt.length - 5) {
           filenameNoExt2 = filenameNoExt.slice(0, dotPos)
         }
-        cmd = `7z x "${file}" -o"${path.resolve(dirname, filenameNoExt2)}"`
+        if (ext === 'zip') {
+          cmd = `zipu "${file}" -x`
+          // await ShellExec(cmd)
+          // cmd = `mv "${filenameNoExt}" `
+        }
+        else {
+          cmd = `7z x "${file}" -o"${path.resolve(dirname, filenameNoExt2)}"`
+        }
+          
         isCompress = false
       }
       else {
