@@ -20,10 +20,10 @@ RUN apt-get install -y unzip
 RUN mkdir -p /app/
 # COPY ./app /app
 
-CMD ["node", "/app/index.js"]
-
-ENTRYPOINT [ ]
-
 RUN apt-get update
 RUN apt-get install -y python3 python3-pip
 RUN pip install ZipUnicode
+
+CMD ["node", "/app/index.js"]
+
+ENTRYPOINT [ ]
