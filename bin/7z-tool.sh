@@ -319,7 +319,9 @@ if [ "$INPUT_FILE" != "false" ]; then
       cd "${WORK_DIR}"
 
       if [ -f "${var}" ]; then
+        echo "測試前"
         var=getRealpath "${var}"
+        echo "測試後"
       fi
       cd "/tmp/${PROJECT_NAME}"
       setDockerComposeYML "${var}"
@@ -346,3 +348,5 @@ else
   rm -f "${cloudflare_file}"
   runDockerCompose
 fi
+
+echo "結束"
