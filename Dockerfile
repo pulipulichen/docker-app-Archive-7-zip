@@ -17,7 +17,8 @@ RUN localedef -c -f UTF-8 -i zh_TW zh_TW.utf8
 
 
 RUN apt-get install -y unzip
-COPY ./app /app
+RUN mkdir -p /app/
+COPY ./app/* /app/
 
 CMD ["node", "/app/index.js"]
 
