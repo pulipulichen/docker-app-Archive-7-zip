@@ -9,7 +9,7 @@ const fs = require('fs')
 
 let main = async function () {
   // await ShellSpawn(`locale`)
-  process.exit(0);
+  // process.exit(0);
   let files = GetExistedArgv()
   for (let i = 0; i < files.length; i++) {
     let file = files[i]
