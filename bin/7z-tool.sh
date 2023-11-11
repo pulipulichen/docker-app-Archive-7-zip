@@ -109,10 +109,6 @@ fi
 
 if [ -f "$DOCKER_COMPOSE_FILE" ]; then
   PUBLIC_PORT=$(awk '/ports:/{flag=1} flag && /- "[0-9]+:[0-9]+"/{split($2, port, ":"); gsub(/"/, "", port[1]); print port[1]; flag=0}' "$DOCKER_COMPOSE_FILE")
-
-  if [ ! -n "$PUBLIC_PORT" ] || [ ! -z "${PUBLIC_PORT##*[![:space:]]*}" ]; then
-    PUBLIC_PORT="false"
-  fi
 fi
 
 #echo "P: ${PUBLIC_PORT}"
@@ -205,8 +201,8 @@ setDockerComposeYML() {
   template=$(<"/tmp/${PROJECT_NAME}/docker-build/image/docker-compose-template.yml")
   #echo "$template"
 
-  template="${template/\[SOURCE\]/$dirname}"
-  template="${template/\[INPUT\]/$filename}"
+  template="${template/__SOURCE__/$dirname}"
+  template="${template/__INPUT__/$filename}"
 
   echo "$template" > "/tmp/${PROJECT_NAME}/docker-compose.yml"
 }
@@ -238,25 +234,21 @@ runDockerCompose() {
   fi
 
   #echo "m ${must_sudo}"
-  
-  if [ "$PUBLIC_PORT" == false ]; then
-    echo "app"
+
+  if [ "$PUBLIC_PORT" == "false" ]; then
     if [ "$must_sudo" == "false" ]; then
       docker-compose down
-      echo "app 1"
       if ! docker-compose up --build; then
         echo "Error occurred. Trying with sudo..."
         sudo docker-compose down
         sudo docker-compose up --build
       fi
     else
-      echo "app 2"
       sudo docker-compose down
       sudo docker-compose up --build
     fi
     exit 0
   else
-    echo "not app"
     # Set up a trap to catch Ctrl+C and call the cleanup function
     trap 'cleanup' INT
 
@@ -327,7 +319,7 @@ if [ "$INPUT_FILE" != "false" ]; then
       cd "${WORK_DIR}"
 
       if [ -f "${var}" ]; then
-        var=$(getRealpath "${var}")
+        var=getRealpath "${var}"
       fi
       cd "/tmp/${PROJECT_NAME}"
       setDockerComposeYML "${var}"
