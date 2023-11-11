@@ -15,8 +15,10 @@ RUN echo "export LANG=zh_TW.UTF-8" >> /etc/profile
 
 RUN localedef -c -f UTF-8 -i zh_TW zh_TW.utf8
 
-CMD ["node", "/app/index.js"]
-ENTRYPOINT [ "" ]
 
 RUN apt-get install -y unzip
 COPY ./app /app
+
+CMD ["node", "/app/index.js"]
+
+ENTRYPOINT [ ]
