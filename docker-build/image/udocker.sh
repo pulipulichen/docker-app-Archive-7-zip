@@ -8,8 +8,14 @@
 PROJECT_NAME=docker-app-Archive-7-zip
 IMAGE_NAME=pudding/docker-app:docker-app-archive-7-zip_app-20231111-1040-0
 LOCAL_VOLUMN_PATH=/app
-LOCAL_PORT=-1
+
+
+LOCAL_PORT=0    # 0表示不使用
 RUN_IN_BACKGROUND=false
+
+# =================================================================
+
+export LOCAL_PORT
 
 echo "Image: ${IMAGE_NAME}"
 
