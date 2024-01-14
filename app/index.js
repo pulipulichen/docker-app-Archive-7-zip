@@ -106,6 +106,7 @@ let main = async function () {
             if (fs.lstatSync(path.resolve(targetFolder, list[0])).isDirectory()) {
               let folderPath = path.resolve(targetFolder, list[0])
               let subList = fs.readdirSync(folderPath)
+              console.log({subList})
               if (subList.length > 1) {
                 break
               }
