@@ -94,12 +94,12 @@ let main = async function () {
     
     if (isCompress === false) {
       let targetFolder = path.resolve(dirname, filenameNoExt)
-      console.log({targetFolder})
+      // console.log({targetFolder})
       while (true) {
-        console.log(targetFolder, fs.existsSync(targetFolder))
+        // console.log(targetFolder, fs.existsSync(targetFolder))
         if (targetFolder && fs.existsSync(targetFolder) && fs.lstatSync(targetFolder).isDirectory()) {
           let list = fs.readdirSync(targetFolder)
-          console.log({list})
+          // console.log({list})
           if (list.length > 1) {
             break
           }
@@ -107,7 +107,7 @@ let main = async function () {
             if (fs.lstatSync(path.resolve(targetFolder, list[0])).isDirectory()) {
               let folderPath = path.resolve(targetFolder, list[0])
 
-              console.log([list[0], path.basename(targetFolder)])
+              // console.log([list[0], path.basename(targetFolder)])
               if (list[0] !== path.basename(targetFolder)) {
                 break
               }
