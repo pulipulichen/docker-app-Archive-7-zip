@@ -106,11 +106,11 @@ let main = async function () {
           else if (list.length === 1) {
             if (fs.lstatSync(path.resolve(targetFolder, list[0])).isDirectory()) {
               let folderPath = path.resolve(targetFolder, list[0])
-              let subList = fs.readdirSync(folderPath)
-              console.log({subList})
-              if (subList.length > 1) {
-                break
-              }
+              // let subList = fs.readdirSync(folderPath)
+              // console.log({subList})
+              // if (subList.length > 1) {
+              //   break
+              // }
 
               await ShellExec(`cd "${folderPath}"; mv * ../; cd ../; rm -rf "${list[0]}"`)
             }
