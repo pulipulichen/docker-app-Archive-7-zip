@@ -133,8 +133,12 @@ let main = async function () {
             }
             else {
               if (path.basename(targetFolder) === path.basename(list[0])) {
-                await ShellExec(`mv "${targetFolder}" "${targetFolder}.tmp"`)  
-                targetFolder = targetFolder + '.tmp'
+                let renameTargetFolder = targetFolder + '.tmp'
+                while (fs.existsSync(renameTargetFolder)) {
+                  renameTargetFolder = renameTargetFolder + '.tmp'
+                }
+                await ShellExec(`mv "${targetFolder}" "${renameTargetFolder}"`)  
+                targetFolder = renameTargetFolder
               }
 
               // console.log('only 1 file ' + list[0])
