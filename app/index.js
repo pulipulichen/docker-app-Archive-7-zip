@@ -132,6 +132,11 @@ let main = async function () {
               await ShellExec(`cd "${folderPath}"; mv * ../; cd ../; rm -rf "${list[0]}"`)
             }
             else {
+              if (path.basename(targetFolder) === path.basename(list[0])) {
+                await ShellExec(`mv "${targetFolder}" "${targetFolder}.tmp"`)  
+                targetFolder = targetFolder + '.tmp'
+              }
+
               // console.log('only 1 file ' + list[0])
               console.log(`cd "${targetFolder}"; cp -f * ../; cd ../; rm -rf "${path.basename(targetFolder)}"`)
               await ShellExec(`cd "${targetFolder}"; cp -f * ../; cd ../; rm -rf "${path.basename(targetFolder)}"`)
