@@ -146,6 +146,9 @@ let main = async function () {
       } 
     }
   }
+
+  await ShellExec(`ls -l /output/`)
+
   console.log('finished')
   process.exit(0);
 } // let main = async function () {
