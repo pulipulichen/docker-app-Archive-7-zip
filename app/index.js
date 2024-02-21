@@ -138,7 +138,7 @@ let main = async function () {
               }
 
               // console.log('only 1 file ' + list[0])
-              console.log(`cd "${targetFolder}"; cp -f * ../; cd ../; rm -rf "${path.basename(targetFolder)}"`)
+              // console.log(`cd "${targetFolder}"; cp -f * ../; cd ../; rm -rf "${path.basename(targetFolder)}"`)
               await ShellExec(`cd "${targetFolder}"; cp -f * ../; cd ../; rm -rf "${path.basename(targetFolder)}"`)
             }
             await ShellExec(`ls -l /output/`)
