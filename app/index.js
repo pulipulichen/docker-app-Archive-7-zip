@@ -74,6 +74,10 @@ let main = async function () {
           await ShellExec(cmd)
           await ShellExec(`ls -l /input/`)
           cmd = `mv "/input/${filenameNoExt}" /output/`
+
+          if (fs.existsSync(`/output/${filenameNoExt}`)) {
+            cmd = `echo File is exists.`
+          }
         }
         else {
           cmd = `7z x "${file}" -o"${path.resolve(dirname, filenameNoExt2)}"`
