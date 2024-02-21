@@ -73,6 +73,8 @@ let main = async function () {
           cmd = `zipu "${file}" -x`
           await ShellExec(cmd)
           await ShellExec(`ls -l /input/`)
+
+          await ShellExec(`ls -l /output/`)
           cmd = `mv "/input/${filenameNoExt}" /output/`
 
           if (fs.existsSync(`/output/${filenameNoExt}`)) {
