@@ -106,9 +106,9 @@ let main = async function () {
     
     if (isCompress === false) {
       let targetFolder = path.resolve(dirname, filenameNoExt)
-      // console.log({targetFolder})
+      console.log({targetFolder})
       while (true) {
-        // console.log(targetFolder, fs.existsSync(targetFolder))
+        console.log(targetFolder, fs.existsSync(targetFolder), fs.lstatSync(targetFolder).isDirectory())
         if (targetFolder && fs.existsSync(targetFolder) && fs.lstatSync(targetFolder).isDirectory()) {
           let list = fs.readdirSync(targetFolder)
           // console.log({list})
