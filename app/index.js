@@ -72,7 +72,7 @@ let main = async function () {
         if (ext === 'zip') {
           cmd = `zipu "${file}" -x`
           await ShellExec(cmd)
-          await ShellExec(`ls -l`)
+          await ShellExec(`ls -l /input/`)
           cmd = `mv "/input/${filenameNoExt}" /output/`
         }
         else {
