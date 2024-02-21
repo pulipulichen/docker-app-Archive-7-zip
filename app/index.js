@@ -70,6 +70,11 @@ let main = async function () {
           filenameNoExt2 = filenameNoExt.slice(0, dotPos)
         }
         if (ext === 'zip') {
+          if (fs.existsSync(`/input/${filenameNoExt}`)) {
+            cmd = `rm -rf /input/${filenameNoExt}`
+            await ShellExec(cmd)
+          }
+
           cmd = `zipu "${file}" -x`
           await ShellExec(cmd)
           await ShellExec(`ls -l /input/`)
