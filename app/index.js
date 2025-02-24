@@ -96,11 +96,12 @@ let main = async function () {
         cmd = `7z a -t7z "${path.resolve(dirname, filename + '.7z')}" -mx9 -aoa -ms=on -m0=lzma2 "${file}"`
       }
 
-      fs.unlinkSync(file)
+      // fs.unlinkSync(file)
     }
 
     try {
       await ShellExec(cmd)
+      fs.unlinkSync(file)
     }
     catch (e) {
       console.error(e)
